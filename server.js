@@ -9,7 +9,7 @@ app.set('view engine', 'hbs')
 app.use(express.static(__dirname+ '/public'))
 
 app.use((req,res,next)=>{
-  res.render('Maintenance');
+  res.render('maintenance.hbs');
   next();
 })
 
@@ -23,7 +23,9 @@ app.get('/about', (req,res)=>{
     pageDesc: 'This is page description'
   })
 })
-
+app.get('/favicon.ico', function(req, res) {
+    res.status(204);
+});
 app.get('/projects', (req,res) => {
   res.render('projects.hbs');
 })
